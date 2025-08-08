@@ -188,6 +188,7 @@ Berikut adalah penyelesaian untuk tantangan dari CTF Foresty.
     <img src="img/svg4.png" width="500">
     <br>
     Ditemukan `$dom->load($path, LIBXML_NOENT | LIBXML_DTDLOAD);` Itu artinya kita bisa melakukan serangan XXE!
+    <br>
   - Buat file SVG berbahaya yang berisi *payload* XXE untuk membaca file lokal (`/flag.txt`).
      ```xml
      <?xml version="1.0"?>
